@@ -1,4 +1,4 @@
-let tampil = document.querySelector("#belajar");
+let tampilzd = document.querySelector("#zodiak");
 
 // klik.addEventListener("click", hasil);
 klik.onclick = function () {
@@ -11,9 +11,9 @@ function hasil() {
 }
 
 function zodiak() {
-    let tgl = document.getElementsByName("tgl").length;
-    let bln = document.querySelector("#tanggal").value;
-    let hasil = "salah";
+    let bln = document.getElementById("tanggal").value;
+    let tgl = document.getElementById("bulan").value;
+    let hasil ="salah";
     if (bln > 0 && bln < 13 && tgl > 0 && tgl < 32) {
         hasil = "zodiak belum di buat";
         if (bln == 1) {
@@ -114,7 +114,7 @@ function zodiak() {
         }
     }
     console.log(hasil);
-    tampil.innerHTML = hasil;
+    tampilzd.innerHTML = hasil;
 }
 
 lulus(60);
