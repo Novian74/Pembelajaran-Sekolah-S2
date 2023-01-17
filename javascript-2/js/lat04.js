@@ -1,4 +1,7 @@
 let tampilzd = document.querySelector("#zodiak");
+let tampills = document.querySelector("#lulus");
+let tampiltb = document.querySelector("#konversi");
+let tampilpm = document.querySelector("#prima");
 
 // klik.addEventListener("click", hasil);
 klik.onclick = function () {
@@ -13,7 +16,7 @@ function hasil() {
 function zodiak() {
     let bln = document.getElementById("tanggal").value;
     let tgl = document.getElementById("bulan").value;
-    let hasil ="salah";
+    let hasil = "salah";
     if (bln > 0 && bln < 13 && tgl > 0 && tgl < 32) {
         hasil = "zodiak belum di buat";
         if (bln == 1) {
@@ -117,8 +120,8 @@ function zodiak() {
     tampilzd.innerHTML = hasil;
 }
 
-lulus(60);
-function lulus(nilai) {
+function lulus() {
+    let nilai = document.getElementById("nilai").value;
     let hasil = "Nilai Salah";
     let kkm = 80;
     if (nilai > 0 && nilai <= 100) {
@@ -126,10 +129,11 @@ function lulus(nilai) {
             hasil = "Lulus";
         }
         if (nilai < kkm) {
-            hasil = "tidak lulus";
+            hasil = "Tidak Lulus";
         }
     }
     console.log(hasil);
+    tampills.innerHTML = hasil;
 }
 
 console.log(terbilang(2000002));
@@ -158,24 +162,26 @@ function terbilang(angka) {
     }
 }
 
-prima(2);
-function prima(bilangan) {
+function prima() {
+    hasil = "";
+    let angkaa = document.getElementById("angkaa").value;
     let prima = true;
-    if (bilangan === 1) {
-        console.log("1 bukan bilangan prima");
-    } else if (bilangan > 1) {
-        for (let i = 2; i < bilangan; i++) {
-            if (bilangan % i == 0) {
+    if (angkaa === 1) {
+        hasil = "1 bukan bilangan prima";
+    } else if (angkaa > 1) {
+        for (let i = 2; i < angkaa; i++) {
+            if (angkaa % i == 0) {
                 prima = false;
                 break;
             }
         }
         if (prima) {
-            console.log(`${bilangan} adalah bilangan prima`);
+            hasil = angkaa + " adalah bilangan prima";
         } else {
-            console.log(`${bilangan} bukan bilangan prima`);
+            hasil = angkaa + " bukan bilangan prima" ;
         }
     } else {
-        console.log("Bilangan ini bukan bilangan prima");
+        hasil = "Bilangan ini bukan bilangan prima" ;
     }
+    tampilpm.innerHTML = hasil;
 }
