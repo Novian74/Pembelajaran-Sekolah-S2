@@ -14,8 +14,8 @@ function hasil() {
 }
 
 function zodiak() {
-    let bln = document.getElementById("tanggal").value;
-    let tgl = document.getElementById("bulan").value;
+    let bln = document.getElementById("bulan").value;
+    let tgl = document.getElementById("tanggal").value;
     let hasil = "salah";
     if (bln > 0 && bln < 13 && tgl > 0 && tgl < 32) {
         hasil = "zodiak belum di buat";
@@ -136,30 +136,34 @@ function lulus() {
     tampills.innerHTML = hasil;
 }
 
-console.log(terbilang(2000002));
-function terbilang(angka) {
-    let bilangan = ["", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas"];
-    if (angka < 12) {
-        return bilangan[angka];
-    } else if (angka < 20) {
-        return terbilang(angka - 10) + "belas";
-    } else if (angka < 100) {
-        return terbilang(Math.floor(parseInt(angka) / 10)) + " puluh " + terbilang(parseInt(angka) % 10);
-    } else if (angka < 200) {
-        return "seratus " + terbilang(parseInt(angka) - 100);
-    } else if (angka < 1000) {
-        return terbilang(Math.floor(parseInt(angka) / 100)) + " ratus " + terbilang(parseInt(angka) % 100);
-    } else if (angka < 2000) {
-        return "seribu " + terbilang(parseInt(angka) - 1000);
-    } else if (angka < 1000000) {
-        return terbilang(Math.floor(parseInt(angka) / 1000)) + " ribu " + terbilang(parseInt(angka) % 1000);
-    } else if (angka < 1000000000) {
-        return terbilang(Math.floor(parseInt(angka) / 1000000)) + " juta " + terbilang(parseInt(angka) % 1000000);
-    } else if (angka < 1000000000000) {
-        return terbilang(Math.floor(parseInt(angka) / 1000000000)) + " miliyar " + terbilang(parseInt(angka) % 1000000000);
-    } else if (angka < 1000000000000000) {
-        return terbilang(Math.floor(parseInt(angka) / 1000000000000)) + " trilyun " + terbilang(parseInt(angka) % 1000000000000);
+function terbilang() {
+    let angka = document.getElementById("angka").value;
+    function conv(angka) {
+
+        let bil = ["", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas"];
+        if (angka < 12) {
+            return bil[angka];
+        } else if (angka < 20) {
+            return conv(angka - 10) + "belas";
+        } else if (angka < 100) {
+            return conv(Math.floor(parseInt(angka) / 10)) + " puluh " + conv(parseInt(angka) % 10);
+        } else if (angka < 200) {
+            return "seratus " + conv(parseInt(angka) - 100);
+        } else if (angka < 1000) {
+            return conv(Math.floor(parseInt(angka) / 100)) + " ratus " + conv(parseInt(angka) % 100);
+        } else if (angka < 2000) {
+            return "seribu " + conv(parseInt(angka) - 1000);
+        } else if (angka < 1000000) {
+            return conv(Math.floor(parseInt(angka) / 1000)) + " ribu " + conv(parseInt(angka) % 1000);
+        } else if (angka < 1000000000) {
+            return conv(Math.floor(parseInt(angka) / 1000000)) + " juta " + conv(parseInt(angka) % 1000000);
+        } else if (angka < 1000000000000) {
+            return conv(Math.floor(parseInt(angka) / 1000000000)) + " milyar " + conv(parseInt(angka) % 1000000000);
+        } else if (angka < 1000000000000000) {
+            return conv(Math.floor(parseInt(angka) / 1000000000000)) + " trilyun " + conv(parseInt(angka) % 1000000000000);
+        }
     }
+    tampiltb.innerHTML = conv(angka);
 }
 
 function prima() {
@@ -178,10 +182,10 @@ function prima() {
         if (prima) {
             hasil = angkaa + " adalah bilangan prima";
         } else {
-            hasil = angkaa + " bukan bilangan prima" ;
+            hasil = angkaa + " bukan bilangan prima";
         }
     } else {
-        hasil = "Bilangan ini bukan bilangan prima" ;
+        hasil = "Bilangan ini bukan bilangan prima";
     }
     tampilpm.innerHTML = hasil;
 }
