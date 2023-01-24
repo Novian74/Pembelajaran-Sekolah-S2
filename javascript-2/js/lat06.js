@@ -29,3 +29,25 @@ let tampil = a => {
 
 console.log(kali(2, 3));
 tampil("belajar");
+
+// let siswa = {
+//     nama: 'joni',
+//     sekolah: 'SMKN 2 BUDURAN',
+//     kelas: 'XI RPL'
+// }
+
+// console.log(siswa);
+// console.log(siswa.nama);
+
+let siswa = '{ "Siswa" : [' +
+    '{ "Nama":"Siti" , "Kelas":"XI-RPL" , "Sekolah":"SMKN 2 BUDURAN"},' +
+    '{ "Nama":"Esti" , "Kelas":"XI-MM" , "Sekolah":"SMKN 2 BUDURAN"},' +
+    '{ "Nama":"Leni" , "Kelas":"XI-AK" , "Sekolah":"SMKN 2 BUDURAN"} ]}';
+
+const obj = JSON.parse(siswa);
+console.log(obj.Siswa[0].Nama);
+obj.Siswa.forEach(el => {
+    console.log(el);
+    document.querySelector("#muncul").innerHTML += el.Nama + " " + el.Kelas + " " + el.Sekolah + "<br>";
+});
+
